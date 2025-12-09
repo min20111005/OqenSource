@@ -1,7 +1,7 @@
--- free further extend. made on swift executor
+-- 無料のさらなる拡張。スウィフトエグゼキューターで作られました。
 
 local CONFIGURATION = {
-    RANGE = 40;
+    RANGE = 100;
 }
 
 local UserInputService = game:GetService("UserInputService")
@@ -12,7 +12,7 @@ local Player = Players.LocalPlayer
 
 ReplicatedStorage.DataEvents.UpdateLineColorsEvent:FireServer(ColorSequence.new({
     ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0));
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 255, 195));
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 0, 255));
 }))
 Player.CharacterAdded:Connect(function(Character)
     for i = 1, 10 do
