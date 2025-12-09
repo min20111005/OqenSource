@@ -1,7 +1,5 @@
--- 無料のさらなる拡張。スウィフトエグゼキューターで作られました。
-
 local CONFIGURATION = {
-    RANGE = 20;
+      RANGE = 50;
 }
 
 local UserInputService = game:GetService("UserInputService")
