@@ -1,5 +1,5 @@
 local CONFIGURATION = {
-      RANGE = 50;
+      RANGE = 40;
 }
 
 local UserInputService = game:GetService("UserInputService")
