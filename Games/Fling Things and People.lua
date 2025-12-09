@@ -1,5 +1,5 @@
 local CONFIGURATION = {
-      RANGE = 45;
+      RANGE = 42.5;
 }
 
 local UserInputService = game:GetService("UserInputService")
@@ -9,8 +9,11 @@ local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 
 ReplicatedStorage.DataEvents.UpdateLineColorsEvent:FireServer(ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0));
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 0, 255));
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(255,75,75));
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 100, 0));
+    ColorSequenceKeypoint.new(2, Color3.fromRGB(255, 255, 75));
+    ColorSequenceKeypoint.new(3, Color3.fromRGB(75, 255, 75));
+    ColorSequenceKeypoint.new(4, Color3.fromRGB(100, 100, 255));
 }))
 Player.CharacterAdded:Connect(function(Character)
     for i = 1, 10 do
