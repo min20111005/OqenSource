@@ -1,18 +1,27 @@
 local Players = game:GetService("Players")
-local TextChatService = game:GetService("TextChatService")
-
-local localPlayer = Players.LocalPlayer
-
-TextChatService.OnIncomingMessage = function(message)
---[Me]
-    if message.TextSource 
-        and message.TextSource.UserId == localPlayer.UserId 
-    then
-        message.PrefixText = "[Me] " .. message.PrefixText
+local function onPlayerChatted(player, message)
+    local tag = ""
+    if player == Players.LocalPlayer then
+        tag = "[Me] "
+    else
+        for _, friend in ipairs(Players.LocalPlayer:GetFriendsOnline()) do
+            if tostring(friend.UserId) == tostring(player.UserId) then
+                tag = "[Friend] "
+                break
+            end
+        end
     end
 
-    return message
+    game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage", {
+        Text = tag .. player.Name .. ": " .. message
+    })
 end
+
+Players.PlayerAdded:Connect(function(player)
+    player.Chatted:Connect(function(msg)
+        onPlayerChatted(player, msg)
+    end)
+end)
 
 local function getRandomRGB()
     local r = math.random(0, 255)
@@ -31,7 +40,6 @@ local ReplicatedFirst = game:GetService("ReplicatedFirst")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
-
 ReplicatedStorage.DataEvents.UpdateLineColorsEvent:FireServer(ColorSequence.new({
 --colors
     ColorSequenceKeypoint.new(0, Color3.fromRGB(Acolor.R, Acolor.G, Acolor.B));
@@ -49,6 +57,5 @@ Player.CharacterAdded:Connect(function(Character)
         task.wait()
     end
 end)
-
 local GrabParts = ReplicatedFirst.GrabParts
 GrabParts.BeamPart.GrabBeam.Texture = "rbxassetid://8933355899"
