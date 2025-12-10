@@ -1,9 +1,14 @@
--- free further extend. made on swift executor
+local function getRandomRGB()
+    local r = math.random(0, 255)
+    local g = math.random(0, 255)
+    local b = math.random(0, 255)
+    return { R = r, G = g, B = b }
+end
 
+local color = getRandomRGB()
 local CONFIGURATION = {
     RANGE = 45;
 }
-
 local UserInputService = game:GetService("UserInputService")
 local ReplicatedFirst = game:GetService("ReplicatedFirst")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -11,8 +16,8 @@ local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 
 ReplicatedStorage.DataEvents.UpdateLineColorsEvent:FireServer(ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0));
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 0, 255));
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(color.R, color.G, color.B));
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(color.R, color.G, color.B));
 }))
 Player.CharacterAdded:Connect(function(Character)
     for i = 1, 10 do
