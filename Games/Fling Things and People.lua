@@ -4,10 +4,7 @@ local function getRandomRGB()
     local Ag = math.random(0, 255)
     local Ab = math.random(0, 255)
     return { AR = Ar, AG = Ag, B = Ab }
-end
-
 --B TEAM
-local function getRandomRGB()
     local Br = math.random(0, 255)
     local Bg = math.random(0, 255)
     local Bb = math.random(0, 255)
@@ -16,7 +13,7 @@ end
 
 local color = getRandomRGB()
 local CONFIGURATION = {
-    RANGE = 50
+    RANGE = 100
 }
 local UserInputService = game:GetService("UserInputService")
 local ReplicatedFirst = game:GetService("ReplicatedFirst")
