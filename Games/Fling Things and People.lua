@@ -5,9 +5,10 @@ local function getRandomRGB()
     return { R = r, G = g, B = b }
 end
 
-local color = getRandomRGB()
+local Acolor = getRandomRGB()
+local Bcolor = getRandomRGB()
 local CONFIGURATION = {
-    RANGE = 45;
+    RANGE = 50;
 }
 local UserInputService = game:GetService("UserInputService")
 local ReplicatedFirst = game:GetService("ReplicatedFirst")
@@ -16,8 +17,8 @@ local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 
 ReplicatedStorage.DataEvents.UpdateLineColorsEvent:FireServer(ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(color.R, color.G, color.B));
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(color.R, color.G, color.B));
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(Acolor.R, Acolor.G, Acolor.B));
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(Bcolor.R, Bcolor.G, Bcolor.B));
 }))
 Player.CharacterAdded:Connect(function(Character)
     for i = 1, 10 do
