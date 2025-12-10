@@ -3,12 +3,16 @@ local function getRandomRGB()
     local Ar = math.random(0, 255)
     local Ag = math.random(0, 255)
     local Ab = math.random(0, 255)
-    return { AR = Ar, AG = Ag, B = Ab }
 --B TEAM
     local Br = math.random(0, 255)
     local Bg = math.random(0, 255)
     local Bb = math.random(0, 255)
-    return { BR = Br, BG = Bg, BB = Bb }
+    return { AR = Ar, 
+             AG = Ag, 
+             AB = Ab, 
+             BR = Br, 
+             BG = Bg, 
+             BB = Bb }
 end
 
 local color = getRandomRGB()
