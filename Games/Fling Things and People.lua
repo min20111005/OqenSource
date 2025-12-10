@@ -1,7 +1,7 @@
 -- free further extend. made on swift executor
 
 local CONFIGURATION = {
-    RANGE = 47.5;
+    RANGE = 45;
 }
 
 local UserInputService = game:GetService("UserInputService")
