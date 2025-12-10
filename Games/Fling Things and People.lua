@@ -1,3 +1,19 @@
+local Players = game:GetService("Players")
+local TextChatService = game:GetService("TextChatService")
+
+local localPlayer = Players.LocalPlayer
+
+TextChatService.OnIncomingMessage = function(message)
+--[Me]
+    if message.TextSource 
+        and message.TextSource.UserId == localPlayer.UserId 
+    then
+        message.PrefixText = "[Me] " .. message.PrefixText
+    end
+
+    return message
+end
+
 local function getRandomRGB()
     local r = math.random(0, 255)
     local g = math.random(0, 255)
@@ -17,6 +33,7 @@ local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 
 ReplicatedStorage.DataEvents.UpdateLineColorsEvent:FireServer(ColorSequence.new({
+--colors
     ColorSequenceKeypoint.new(0, Color3.fromRGB(Acolor.R, Acolor.G, Acolor.B));
     ColorSequenceKeypoint.new(1, Color3.fromRGB(Bcolor.R, Bcolor.G, Bcolor.B));
 }))
