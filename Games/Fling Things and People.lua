@@ -17,7 +17,7 @@ end
 
 local color = getRandomRGB()
 local CONFIGURATION = {
-    RANGE = 100
+    RANGE = 50
 }
 local UserInputService = game:GetService("UserInputService")
 local ReplicatedFirst = game:GetService("ReplicatedFirst")
